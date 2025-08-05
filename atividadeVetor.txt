@@ -1,0 +1,36 @@
+1-Atividade Vetor
+
+
+Lista de códigos númericos (máx. 20)
+
+ > Exibição de um menu de opções ao acessar a lista.
+   1- Consultar código (a)
+   2- Inserir um novo código (b)
+   3- Retirar um código (c)
+   4- Consultar memória da lista (d)
+
+
+a) Opção 1 
+
+Imprimir na tela uma pergunta ao usuário "Qual posição deseja consultar?", partindo da premissa de que ele irá acessar cada uma das posições, através dos índices delas, tendo como retorno em tela o código alocado naquela posição. 
+
+O usuário deve solicitar uma posição válida de 0 a 19.  
+ - Se solicitar um número maior que 19, uma mensagem de erro irá aparecer na tela "Posição inválida! Informe uma posição de 0 a 19."
+
+ - Se a posição da lista estiver vazia (ou seja, sem o código númerico), será devolvido ao usuário a mensagem "A posição está vazia."
+
+ - Se a posição estiver ocupada (isto é, com o código númerico), será devolvido ao usuário o código númerico correspondente a posição.
+
+
+b) Opção 2
+
+A lista irá solicitar ao usuário o código númerico, que será destinado a uma posição de 0 a 19 na lista, conforme indicada pelo usuário.
+ 
+ - Se o código já existir, será informado: "Um código idêntico já existe nesta lista. Verifique novamente."
+ - Se a posição indicada como destino do código já estiver ocupada, será informado: "Esse posição da lista está ocupada."
+ - Se o código não está contido na lista e a posição indicada está vazia, ele será gravado no espaço indicado.
+ > O contador de posições totais será incrementado em +1.
+
+
+
+
