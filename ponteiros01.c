@@ -5,8 +5,8 @@ Atividade Ponteiros
 
 #include<stdio.h>
 int main (){
-  int x, *px;
-  x = 1;
+  int x, *px; // Cria a variável x e o ponteiro
+  x = 1; // 
   px = &x;
   printf ("01. x= %d\n", x); // Está imprimindo o valor armazenado na variável x.
   printf ("02. px= %u\n", px); // Está imprimindo o endereço da variável x, já que px é igual a &x.
