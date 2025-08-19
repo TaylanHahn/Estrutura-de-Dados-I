@@ -52,10 +52,11 @@ int main()
         printf("\n");
     }
     
-    printf("\n\t\tAGENDA");
-    for(i=0;i<3;i++){
-        printf("\n %s\n %d\n %d\n %s\n %s\n\n", ag[i].nome, ag[i].telefoneFixo, ag[i].celular, ag[i].endereco, ag[i].aniversario);
-    }
+    // se quiser exibir toda a lista após inserir
+    // printf("\n\t\tAGENDA");
+    // for(i=0;i<3;i++){
+    //     printf("\n %s\n %d\n %d\n %s\n %s\n\n", ag[i].nome, ag[i].telefoneFixo, ag[i].celular, ag[i].endereco, ag[i].aniversario);
+    // }
     
     
     
@@ -64,36 +65,19 @@ int main()
         printf("Qual o número do contato você deseja consultar?");
         scanf("%d", &opcao);
         
-        if(opcao == 1){
-            i=0;
-            true;
-            printf("\n %s\n %d\n %d\n %s\n %s\n\n", ag[i].nome, ag[i].telefoneFixo, ag[i].celular, ag[i].endereco, ag[i].aniversario);
-        } else if(opcao == 2){
-            i=1;
-            true;
-            printf("\n %s\n %d\n %d\n %s\n %s\n\n", ag[i].nome, ag[i].telefoneFixo, ag[i].celular, ag[i].endereco, ag[i].aniversario);
-        } else if(opcao == 3){
-            i=2;
-            true;
-            printf("\n %s\n %d\n %d\n %s\n %s\n\n", ag[i].nome, ag[i].telefoneFixo, ag[i].celular, ag[i].endereco, ag[i].aniversario);    
+        if((opcao >= 1) && (opcao <= 3)){
+            int i = opcao - 1;  // ajuste do índice
+            printf("\n %s\n %d\n %d\n %s\n %s\n\n",
+                ag[i].nome,
+                ag[i].telefoneFixo,
+                ag[i].celular,
+                ag[i].endereco,
+                ag[i].aniversario);
         } else{
+            printf("Encerrando o programa...");
             break;
         }
-    } while(opcao != true);
-    
-    
-    // laço para exibir os dados da agenda
-    // printf("\n--- Agenda Completa ---\n");
-    // for (i = 0; i < 3; i++) {
-    //     printf("\nContato %d\n", i + 1);
-    //     printf("Nome: %s\n", ag[i].nome);
-    //     printf("Telefone Fixo: %d\n", ag[i].telefoneFixo);
-    //     printf("Celular: %d\n", ag[i].celular);
-    //     printf("Endereço: %s\n", ag[i].endereco);
-    //     printf("Aniversário: %s\n", ag[i].aniversario);
-    // }
-    
-    
+    } while(1);
     
 }//main
 
