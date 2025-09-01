@@ -124,7 +124,7 @@ int main()
                      if (posicaoInsercao < 1 || posicaoInsercao > numPreenchidos + 1 || posicaoInsercao > MAX) {
                         printf("\nPosição de inserção inválida!\n");
                     } else {
-                        printf("Informe o valor inteiro a ser inserido: ");
+                        printf("\nInforme o valor inteiro a ser inserido: ");
                         scanf("%d", &valorInsercao);
                 
                     // LÓGICA CORRIGIDA: agora move os elementos para a direita, abrindo espaço
@@ -186,3 +186,4 @@ int main()
     return 0;
 
 }
+
