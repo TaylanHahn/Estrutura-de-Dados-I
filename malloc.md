@@ -27,4 +27,15 @@ void* malloc(size_t tamanho_em_bytes);
 ````
 
 - Para usar o ponteiro normalmente, é necessário indicar o tipo da variável.
-- Quando não precisar mais da memória, libere-a com a função `free()`, para evitar perda de memória.
+- Quando não precisar mais da memória, libere-a com a função `free()`.
+
+### A Importância do free
+> Para cada chamada a `malloc`, deve haver uma chamada correspondente a free.
+A função free "devolve" o bloco de memória previamente alocado para o sistema operacional, marcando-o como disponível para uso futuro.
+
+**O que acontece se não usarmos free?**
+O programa continuará "segurando" aquela memória até sua finalização. Se isso ocorrer repetidamente (ex: dentro de um loop), pode causar um vazamento de memória (memory leak), consumindo toda a memória disponível e podendo travar o sistema.
+
+````c
+void free(void *ponteiro_para_memoria_alocada);
+````
