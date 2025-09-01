@@ -20,6 +20,8 @@ Planejamento das funcionalidades;
 Organização da equipe;
 Compreensão dos elementos implementados até o momento.
 
+Dupla: José e Taylan
+
 *******************************************************************************/
 
 #include <stdio.h>
@@ -90,7 +92,7 @@ int main()
                 // O else if (numPreenchidos==MAX) foi removido, pois percebi que neste primeiro caso, não faz sentido informar estar cheio, já que só desejamos consultar o item da lista e não inserir. 
             case 1:
                 int consulta; // Variável local
-                printf("MENU > Consultar \n");
+                printf("\nMENU > Consultar");
                 
                 // Testa de a lista está vazia ou há dados para consultar
                 if (numPreenchidos==0) {
@@ -182,4 +184,5 @@ int main()
     } while (escolha != 0); //  o loop continua enquanto escolha não for 0 (é a opção SAIR)
     
     return 0;
+
 }
