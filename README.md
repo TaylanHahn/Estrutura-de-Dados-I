@@ -1,6 +1,6 @@
 # Estrutura de Dados I
 
-Bem-vindo ao repositório de estudos da disciplina de Estrutura de Dados I. Este espaço contém códigos e anotações sobre os conceitos fundamentais da linguagem C aplicados à construção de estruturas de dados, incluindo Ponteiros, Structs e Alocação Dinâmica de Memória.
+Códigos e anotações sobre os conceitos fundamentais da linguagem C aplicados à construção de estruturas de dados, incluindo Ponteiros, Structs e Alocação Dinâmica de Memória.
 
 ---
 
