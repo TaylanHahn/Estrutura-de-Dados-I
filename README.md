@@ -90,7 +90,7 @@ int main() {
 - **Base para estruturas de dados avançadas**, como listas ligadas, árvores e grafos.
 - *Melhora a legibilidade e a manutenção* do código ao modelar conceitos de forma clara.
 
-### 1.1 - Operadores Fundamentais
+### 2.1 - Operadores Fundamentais
 
 -   `.` (Operador de Acesso a Membro): Usado para acessar um membro (uma variável interna) de uma `struct`.
 -   `->` (Operador de Seta): Usado para acessar um membro de uma `struct` através de um **ponteiro** para essa estrutura. É um atalho para `(*ponteiro).membro`.
