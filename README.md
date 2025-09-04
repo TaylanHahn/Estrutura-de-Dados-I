@@ -80,3 +80,49 @@ int main() {
     ________________________________________________________________________________
     endereço de um ponteiro           &ptr             o ponteiro tbm é uma variável
 
+
+# 2. Structs (Estruturas)
+> É um tipo de dado definido pelo usuário que permite **agrupar variáveis de diferentes tipos** sob um único nome. Funciona como um "molde" para criar variáveis que representam entidades complexas do mundo real, como um aluno, um livro ou um produto.
+
+- **Organização de dados:** agrupa informações relacionadas, tornando o código mais limpo e lógico.
+- **Criação de novos tipos:** permite definir tipos de dados personalizados e complexos.
+- *Facilita a passagem de dados* para funções, agrupando múltiplos valores em um único argumento.
+- **Base para estruturas de dados avançadas**, como listas ligadas, árvores e grafos.
+- *Melhora a legibilidade e a manutenção* do código ao modelar conceitos de forma clara.
+
+### 1.1 - Operadores Fundamentais
+
+-   `.` (Operador de Acesso a Membro): Usado para acessar um membro (uma variável interna) de uma `struct`.
+-   `->` (Operador de Seta): Usado para acessar um membro de uma `struct` através de um **ponteiro** para essa estrutura. É um atalho para `(*ponteiro).membro`.
+
+### Exemplo Prático: Declaração e Uso Básico
+
+```c
+#include <stdio.h>
+#include <string.h> // Necessário para strcpy
+
+// 1. Definição do molde "Produto"
+struct Produto {
+    char nome[50];
+    int id;
+    float preco;
+};
+
+int main() {
+    // 2. Criação de uma variável do tipo 'struct Produto'
+    struct Produto caneta;
+
+    // 3. Acessando os membros com o operador '.' para atribuir valores
+    strcpy(caneta.nome, "Caneta Azul BIC");
+    caneta.id = 101;
+    caneta.preco = 1.99;
+
+    // 4. Lendo e imprimindo os valores dos membros
+    printf("--- Detalhes do Produto ---\n");
+    printf("Nome: %s\n", caneta.nome);
+    printf("ID: %d\n", caneta.id);
+    printf("Preco: R$ %.2f\n", caneta.preco);
+
+    return 0;
+}
+
