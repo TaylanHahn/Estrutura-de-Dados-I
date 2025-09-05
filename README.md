@@ -82,7 +82,7 @@ int main() {
 
 
 # 2. Structs (Estruturas)
-> É um tipo de dado definido pelo usuário que permite **agrupar variáveis de diferentes tipos** sob um único nome. Funciona como um "molde" para criar variáveis que representam entidades complexas do mundo real, como um aluno, um livro ou um produto.
+> É um tipo de dado definido pelo usuário que permite **agrupar variáveis de diferentes tipos** sob um único nome. Funciona como um "molde" para criar variáveis que representam entidades complexas do mundo real, como um aluno, um livro ou um produto. Em C, usamos a palavra reservada `typedef`.
 
 - **Organização de dados:** agrupa informações relacionadas, tornando o código mais limpo e lógico.
 - **Criação de novos tipos:** permite definir tipos de dados personalizados e complexos.
@@ -102,11 +102,11 @@ int main() {
 #include <string.h> // Necessário para strcpy
 
 // 1. Definição do molde "Produto"
-typeof struct {
+typedef struct {
     char nome[50];
     int id;
     float preco;
-} Produto;
+} produto;
 
 int main() {
     // 2. Criação de uma variável do tipo 'struct Produto'
