@@ -102,11 +102,11 @@ int main() {
 #include <string.h> // Necessário para strcpy
 
 // 1. Definição do molde "Produto"
-struct Produto {
+typeof struct {
     char nome[50];
     int id;
     float preco;
-};
+} Produto;
 
 int main() {
     // 2. Criação de uma variável do tipo 'struct Produto'
