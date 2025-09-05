@@ -4,7 +4,7 @@ Códigos e anotações sobre os conceitos fundamentais da linguagem C aplicados 
 
 ---
 
-## 1. Ponteiros 
+# 1. Ponteiros 
 > São variáveis que, em vez de armazenar um valor, armazenam um **endereço de memória** de outra variável. Dominar ponteiros é essencial para criar estruturas de dados eficientes e para manipular a memória de forma avançada.
 
 - **Acesso direto à memória:** permite ler e alterar valores diretamente na memória.
@@ -13,7 +13,7 @@ Códigos e anotações sobre os conceitos fundamentais da linguagem C aplicados 
 - **Alocação dinâmica de memória**, essencialmente para usar `malloc`, `calloc`, free e etc.
 - *Construção de estruturas mais complexas*, com listas ligadas, árvores, pilhas, filas e etc.
 
-### 1.1 - Operadores Fundamentais
+## 1.1 - Operadores Fundamentais
 
 -   `&` (Operador "Endereço de"): Retorna o endereço de memória de uma variável.
 -   `*` (Operador "Diferenciação" ou "Conteúdo de"): Acessa o valor armazenado no endereço de memória para o qual o ponteiro aponta.
@@ -90,7 +90,7 @@ int main() {
 - **Base para estruturas de dados avançadas**, como listas ligadas, árvores e grafos.
 - *Melhora a legibilidade e a manutenção* do código ao modelar conceitos de forma clara.
 
-### 2.1 - Operadores Fundamentais
+## 2.1 - Operadores Fundamentais
 
 -   `.` (Operador de Acesso a Membro): Usado para acessar um membro (uma variável interna) de uma `struct`.
 -   `->` (Operador de Seta): Usado para acessar um membro de uma `struct` através de um **ponteiro** para essa estrutura. É um atalho para `(*ponteiro).membro`.
@@ -130,7 +130,7 @@ int main() {
 }
 ````
 
-### 2.3 - Structs e Ponteiros
+## 2.3 - Structs e Ponteiros
 Assim como em variáveis comuns, podemos ter ponteiros que armazenam o endereço de memória de uma struct. Isso é crucial para a alocação dinâmica e para modificar uma struct dentro de uma função de forma eficiente.
 
 ````c
@@ -160,7 +160,7 @@ int main() {
 }
 ````
 
-### 2.4 - Structs como Parâmetros de Funções
+## 2.4 - Structs como Parâmetros de Funções
 Passar structs para funções é uma prática comum. A passagem por referência (usando ponteiros) é geralmente preferível à passagem por valor, pois evita a cópia de grandes quantidades de dados, economizando memória e tempo de processamento.
 
 ````c
@@ -192,7 +192,7 @@ int main() {
 }
 ````
 
-### 2.5 - Arrays de Structs
+## 2.5 - Arrays de Structs
 É possível criar arrays onde cada elemento é uma struct. Isso é perfeito para armazenar uma coleção de registros, como uma lista de contatos, um inventário de produtos ou os dados de uma turma de alunos.
 
 ````c
@@ -229,7 +229,7 @@ int main() {
 ````
 
 
-## 3. Alocação Dinâmica
+# 3. Alocação Dinâmica
 
 > A alocação dinâmica de memória é um recurso poderoso na linguagem C que permite reservar espaço na memória em tempo de execução. Diferente da alocação estática (ex: `int v[10];`), onde o tamanho é fixo e definido em tempo de compilação, a alocação dinâmica nos dá flexibilidade para gerenciar a memória conforme a necessidade do programa.
 
@@ -240,7 +240,7 @@ Em C, a memória é geralmente dividida em segmentos, sendo os mais comuns a **S
 -   **Stack**: Usada para variáveis locais e chamadas de função. É gerenciada automaticamente pelo compilador. O espaço é limitado e a alocação e liberação são muito rápidas.
 -   **Heap**: Uma área de memória maior e mais flexível, usada para alocação dinâmica. É aqui que funções como `malloc` atuam. **O programador é responsável por gerenciar o ciclo de vida da memória alocada na Heap.**
 
-# A Função `malloc`
+## 3.1 - A Função `malloc`
 
 A função `malloc` (memory allocation) é a principal ferramenta para alocação dinâmica. Ela está declarada na biblioteca `<stdlib.h>`.
 
@@ -272,7 +272,7 @@ O programa continuará "segurando" aquela memória até sua finalização. Se is
 void free(void *ponteiro_para_memoria_alocada);
 ````
 
-# Boas Práticas e Erros Comuns
+### Boas Práticas e Erros Comuns
 
 - **Verifique o retorno de malloc:** Sempre confira se o ponteiro retornado é `NULL`. Tentar acessar um ponteiro NULL resulta em Undefined Behavior, geralmente causando o crash do programa.
 
