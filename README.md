@@ -82,7 +82,7 @@ int main() {
 
 
 # 2. Structs (Estruturas)
-> É um tipo de dado definido pelo usuário que permite **agrupar variáveis de diferentes tipos** sob um único nome. Funciona como um "molde" para criar variáveis que representam entidades complexas do mundo real, como um aluno, um livro ou um produto. Em C, usamos a palavra reservada `typedef`.
+> É um tipo de dado definido pelo usuário que permite **agrupar variáveis de diferentes tipos** sob um único nome. Funciona como um "molde" para criar variáveis que representam entidades complexas do mundo real, como um aluno, um livro ou um produto. 
 
 - **Organização de dados:** agrupa informações relacionadas, tornando o código mais limpo e lógico.
 - **Criação de novos tipos:** permite definir tipos de dados personalizados e complexos.
@@ -94,6 +94,9 @@ int main() {
 
 -   `.` (Operador de Acesso a Membro): Usado para acessar um membro (uma variável interna) de uma `struct`.
 -   `->` (Operador de Seta): Usado para acessar um membro de uma `struct` através de um **ponteiro** para essa estrutura. É um atalho para `(*ponteiro).membro`.
+
+### 2.2 - Simplificando com `typedef`
+A palavra-chave `typedef` cria um "apelido" para um tipo de dado. Ao usá-la você elimina a necessidade de escrever a palavra struct toda vez que for declarar uma nova variável, tornando o código mais enxuto.
 
 ### Exemplo Prático: Declaração e Uso Básico
 
@@ -125,4 +128,105 @@ int main() {
 
     return 0;
 }
+````
+
+### 2.3 - Structs e Ponteiros
+Assim como em variáveis comuns, podemos ter ponteiros que armazenam o endereço de memória de uma struct. Isso é crucial para a alocação dinâmica e para modificar uma struct dentro de uma função de forma eficiente.
+
+````c
+#include <stdio.h>
+
+typedef struct {
+    char titulo[100];
+    int ano;
+} Livro;
+
+int main() {
+    Livro livro1 = {"O Senhor dos Aneis", 1954};
+    Livro *ptrLivro; // Declaração de um ponteiro para uma struct do tipo Livro
+
+    ptrLivro = &livro1; // O ponteiro agora aponta para 'livro1'
+
+    // Para acessar os membros através de um ponteiro, usamos o operador '->'
+    printf("--- Acesso via Ponteiro ---\n");
+    printf("Titulo: %s\n", ptrLivro->titulo);
+    printf("Ano: %d\n", ptrLivro->ano);
+
+    // Modificando o valor original através do ponteiro
+    ptrLivro->ano = 1955; // Alterando o ano de publicação
+    printf("\nAno alterado: %d\n", livro1.ano); // O valor original foi modificado
+
+    return 0;
+}
+````
+
+### 2.4 - Structs como Parâmetros de Funções
+Passar structs para funções é uma prática comum. A passagem por referência (usando ponteiros) é geralmente preferível à passagem por valor, pois evita a cópia de grandes quantidades de dados, economizando memória e tempo de processamento.
+
+````c
+#include <stdio.h>
+
+typedef struct {
+    char nome[50];
+    float salario;
+} Funcionario;
+
+// A função recebe um PONTEiro para a struct.
+// Isso evita criar uma cópia e permite modificar o original.
+void aumentarSalario(Funcionario *func, float percentual) {
+    // Usamos '->' pois 'func' é um ponteiro
+    func->salario = func->salario * (1 + percentual / 100.0);
+}
+
+int main() {
+    Funcionario joao = {"Joao da Silva", 3000.00};
+
+    printf("Salario antigo de %s: R$ %.2f\n", joao.nome, joao.salario);
+
+    // Passamos o ENDEREÇO da struct para a função
+    aumentarSalario(&joao, 10.0); // Aumento de 10%
+
+    printf("Salario novo de %s: R$ %.2f\n", joao.nome, joao.salario);
+
+    return 0;
+}
+````
+
+### 2.5 - Arrays de Structs
+É possível criar arrays onde cada elemento é uma struct. Isso é perfeito para armazenar uma coleção de registros, como uma lista de contatos, um inventário de produtos ou os dados de uma turma de alunos.
+
+````c
+#include <stdio.h>
+#include <string.h>
+
+typedef struct {
+    char nome[50];
+    float nota;
+} Aluno;
+
+int main() {
+    // Criando um array que pode armazenar 3 alunos
+    Aluno turma[3];
+
+    // Preenchendo os dados
+    strcpy(turma[0].nome, "Ana");
+    turma[0].nota = 9.5;
+
+    strcpy(turma[1].nome, "Bruno");
+    turma[1].nota = 7.0;
+    
+    strcpy(turma[2].nome, "Carla");
+    turma[2].nota = 8.2;
+
+    printf("--- Lista de Alunos da Turma ---\n");
+    for (int i = 0; i < 3; i++) {
+        // Acessamos cada struct pelo índice do array
+        printf("Aluno: %s, Nota: %.1f\n", turma[i].nome, turma[i].nota);
+    }
+
+    return 0;
+}
+````
+
+
 
