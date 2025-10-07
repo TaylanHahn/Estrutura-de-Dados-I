@@ -1,5 +1,4 @@
-/******************************************************************************
-
+/*
 Pilha Encadeada Ex1
 
 Criar uma pilha encadeada em C
@@ -10,8 +9,7 @@ Criar uma pilha encadeada em C
 5 - remover um Contato  e imprimir em tela os dados
 6 - remover um Contato  e imprimir em tela os dados
 7 – tentar remover contato (deve dar erro)
-
-*******************************************************************************/
+*/
 
 #include <stdio.h>
 #include "pilha.h"
@@ -67,4 +65,5 @@ int main() {
     } else {
     printf("Erro: Nao foi possivel remover. A pilha esta vazia.\n");
     }
+
 }
