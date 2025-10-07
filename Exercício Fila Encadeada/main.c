@@ -1,11 +1,14 @@
-/******************************************************************************
+/*
 
-Welcome to GDB Online.
-GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
-C#, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
-Code, Compile, Run and Debug online from anywhere in world.
+Fila Duplamente Encadeada
 
-*******************************************************************************/
+1.CRIAR FILA DE NÚMEROS INTEIROS
+2. INSERIR 7 NÚMEROS, 
+3. REMOVER 2 NÚMEROS, 
+4. SOMAR E INSERIR O RESULTADO  NA FILA, 
+REPITA 3 E 4 ATÉ QUE RESTE APENAS 1 ELEMENTO NA FILA.
+
+*/
 #include <stdio.h>
 #include "fila.h"
 
