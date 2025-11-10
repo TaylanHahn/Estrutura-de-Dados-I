@@ -62,10 +62,25 @@ int compararCPF(const char* cpf1, const char* cpf2);
 	// retorna > 0 se cpf1 vem DEPOIS de cpf2
 	
 void buscarPorCPF(tLista *lista); 
+	// busca um contato na lista com base no CPF informado pelo usuário
+    // utiliza a função auxiliar 'buscarNoPorCPF' para localizar o nó correspondente
+    // se o CPF for encontrado, exibe todos os dados do contato na tela
+    // se o CPF não for encontrado, exibe uma mensagem de erro
+    // não altera a lista, apenas faz consulta
 
 void buscarPorNome(tLista *lista);
+	// busca um ou mais contatos na lista a partir de um nome (ou parte dele)
+    // a busca não diferencia maiúsculas e minúsculas (case-insensitive)
+    // exibe todos os contatos cujo nome contém o termo informado
+    // se nenhum contato for encontrado, informa isso ao usuário
+    // não altera a lista, apenas faz consulta
 
 void alterarContato(tLista *lista);
+	// altera os dados (nome, e-mail e telefone) de um contato existente
+    // o contato é identificado pelo CPF, que não pode ser modificado
+    // realiza validação de campos vazios para cada novo dado inserido
+    // se o CPF não for encontrado, exibe mensagem de erro
+    // se for encontrado, atualiza as informações e confirma a alteração
 	
 void liberarLista(tLista *lista);
 	// libera toda a memoria alocada para os nós da lista
