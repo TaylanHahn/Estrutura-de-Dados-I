@@ -37,14 +37,14 @@ void inicializar(tLista *lista) {
 	int validarCPF(const char* cpf){
 	    // aqui verifica se a quantidade inserida eh de exatamente 11 digitos
 	    if(strlen(cpf)!=11){
-	        printf("CPF invalido! Deve conter 11 digitos.");
+	        printf("CPF invalido! Deve conter 11 digitos\n.");
 	        return 0;
 	    } 
 	    
 	    // aqui verifica se o que foi inserido eh numero ou nao
 	    for(int i=0;i<11;i++){
 	        if(!isdigit(cpf[i])){
-	            printf("CPF invalido! Deve conter apenas digitos.");
+	            printf("\nCPF invalido! Deve conter apenas digitos.\n");
 	            return 0;
 	        }
 	    }
@@ -77,18 +77,18 @@ tContato lerContato() {
 	char buffer[150]; // buffer temporario para leitura
 	// o buffer eh uma forma segura de testar o valor, antes de efetivamente grava-lo na struct
 	
-	// usamos " %[^\n]" para ler strings com espaços (como o nome)
-	// o espaço antes do % "consome" o Enter que sobrou do scanf anterior
-    	do{
-    	    printf("digite o CPF (somente numeros): ");
+        do{
+    	    printf("Digite o CPF (somente numeros): ");
     	    scanf("%11s", c.cpf); 
     	    while (getchar() != '\n'); // limpa o buffer de entrada
     	    
     	} while (validarCPF(c.cpf)==0);
     	
-    	do {
-    		printf("digite o Nome: ");
-    		scanf(" %[^\n]", buffer); // lê a string no buffer
+        do {
+    		printf("Digite o Nome: ");
+    		fgets(buffer, 150, stdin);
+    		buffer[strcspn(buffer, "\n")] = 0;
+    
     		if (ehStringVazia(buffer)) {
     			printf("\nErro! O nome nao pode ser vazio.\n");
     		}
@@ -96,8 +96,10 @@ tContato lerContato() {
     	strcpy(c.nome, buffer); // copia do buffer para o contato
     
     	do {
-    		printf("digite o E-mail: ");
-    		scanf(" %[^\n]", buffer);
+    		printf("Digite o E-mail: ");
+    		fgets(buffer, 150, stdin);
+    		buffer[strcspn(buffer, "\n")] = 0;
+    
     		if (ehStringVazia(buffer)) {
     			printf("\nErro! O e-mail nao pode ser vazio.\n");
     		}
@@ -105,8 +107,10 @@ tContato lerContato() {
     	strcpy(c.email, buffer);
     
     	do {
-    		printf("digite o Telefone: ");
-    		scanf(" %[^\n]", buffer);
+    		printf("Digite o Telefone: ");
+    		fgets(buffer, 150, stdin);
+    		buffer[strcspn(buffer, "\n")] = 0;
+    
     		if (ehStringVazia(buffer)) {
     			printf("\nErro! O telefone nao pode ser vazio.\n");
     		}
@@ -320,7 +324,7 @@ int removerPorPosicao(tLista *lista, int pos) {
 	free(noParaRemover);
 	lista->size--; // decrementa o tamanho
 
-	printf("\nfeito! contato '%s' removido da posicao %d.\n", nomeRemovido, pos);
+	printf("\nFeito! contato '%s' removido da posicao %d.\n", nomeRemovido, pos);
 	return 1; // sucesso
 }
 
@@ -498,7 +502,7 @@ void liberarLista(tLista *lista) {
 	tNo* atual = lista->head; // começa pelo primeiro
 	tNo* proximoNo = NULL;
 
-	printf("\nliberando memoria da lista...\n");
+	printf("\nLiberando memoria da lista...\n");
 
 	// loop: percorre a lista inteira
 	while (atual != NULL) {
@@ -517,5 +521,5 @@ void liberarLista(tLista *lista) {
 	lista->tail = NULL;
 	lista->size = 0;
 
-	printf("memoria liberada com sucesso.\n");
+	printf("Memoria liberada com sucesso!\n");
 }
